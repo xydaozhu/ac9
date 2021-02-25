@@ -57,6 +57,7 @@ jobs:
       working-directory: /workdir
       run: |
         git clone https://git.lede-project.org/source.git openwrt
+        cd openwrt
         git checkout lede-17.01
         
     - name: Update feeds
