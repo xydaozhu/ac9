@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Get OpenWrt
+name: Get OpenWrt-17.01
 
 on:
   repository_dispatch:
@@ -66,11 +66,14 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: Tar cvzf
+      run: |
+        tar cvzf /workdir/openwrt.tar.gz /workdir/openwrt 2>/workdir/1
+
     - name: transfer op
       run: |
         curl -fsSL git.io/file-transfer | sh
-        tar cvf /workdir/openwrt.tar /workdir/openwrt 2>/workdir/1
-        ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar 2>&1 | tee cowtransfer.log
+        ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gz 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
