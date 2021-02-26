@@ -150,7 +150,6 @@ jobs:
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
     - name: Upload openwrt.tar.gzaa to cowtransfer
-      id: cowtransfer
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaa 2>&1 | tee cowtransfer.log
@@ -158,7 +157,6 @@ jobs:
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
         
     - name: Upload openwrt.tar.gzab to cowtransfer
-      id: cowtransfer
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzab 2>&1 | tee cowtransfer.log
@@ -167,7 +165,6 @@ jobs:
         
         
     - name: Upload openwrt.tar.gzac to cowtransfer
-      id: cowtransfer
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzac 2>&1 | tee cowtransfer.log
@@ -176,7 +173,6 @@ jobs:
 
 
     - name: Upload openwrt.tar.gzad to cowtransfer
-      id: cowtransfer
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzad 2>&1 | tee cowtransfer.log
@@ -185,7 +181,6 @@ jobs:
 
 
     - name: Upload openwrt.tar.gzae to cowtransfer
-      id: cowtransfer
       run: | 
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzae 2>&1 | tee cowtransfer.log
@@ -194,7 +189,6 @@ jobs:
 
 
     - name: Upload openwrt.tar.gzaf to cowtransfer
-      id: cowtransfer
       run: |  
         curl -fsSL git.io/file-transfer | sh
         ./transfer cow --block 2621440 -s -p 64 --no-progress /workdir/openwrt.tar.gzaf 2>&1 | tee cowtransfer.log
